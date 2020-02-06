@@ -1,0 +1,9 @@
+<% if session[:email].present? %>
+  Logged as <%= session[:email] %> - <%= link_to('Logout', session_path, method: :delete) %>
+<% else %>
+  <%= form_tag(session_path, method: :post) do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= button_tag :submit %>
+  <% end %>
+<% end %>
